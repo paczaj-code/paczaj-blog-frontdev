@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({ type, name, value, disabled }) => {
-  return <input type={type} name={name} value={value} disabled={disabled} />;
+  const isDisabled = disabled ? 'disabled' : null;
+  return <input type={type} name={name} value={value} disabled={isDisabled} />;
 };
 
 Input.propTypes = {

@@ -60,3 +60,9 @@ test('it should be disabled  with disabled prop', () => {
   const { container } = render(<Input name={input_name} disabled={true} />);
   expect(container.firstChild).toHaveAttribute('disabled');
 });
+
+// it should not be disabled  without disabled prop
+test(' it should not be disabled  without disabled prop', () => {
+  const { container } = render(<Input name={input_name} disabled={false} />);
+  expect(container.firstChild).not.toHaveAttribute('disabled');
+});
