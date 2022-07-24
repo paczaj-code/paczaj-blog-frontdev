@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ type, name, value, disabled }) => {
+const Input = ({ type, name, value, disabled, onChange }) => {
   const isDisabled = disabled ? 'disabled' : null;
-  return <input type={type} name={name} value={value} disabled={isDisabled} />;
+  return (
+    <input
+      type={type}
+      name={name}
+      value={value}
+      disabled={isDisabled}
+      onChange={onChange}
+    />
+  );
 };
 
 Input.propTypes = {
@@ -11,28 +19,29 @@ Input.propTypes = {
     'button',
     'checkbox',
     'color',
-    'date',
-    'datetime-local',
+    // 'date',
+    // 'datetime-local',
     'email',
     'file',
     'hidden',
-    'image',
-    'month',
-    'number',
+    // 'image',
+    // 'month',
+    // 'number',
     'radio',
     'range',
     'reset',
-    'search',
+    // 'search',
     'submit',
-    'tel',
+    // 'tel',
     'text',
-    'time',
-    'url',
-    'week'
+    // 'time',
+    'url'
+    // 'week'
   ]),
   name: PropTypes.string.isRequired,
-  value: PropTypes.instanceOf(Object),
-  disabled: PropTypes.bool
+  value: PropTypes.string,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 Input.defaultProps = {

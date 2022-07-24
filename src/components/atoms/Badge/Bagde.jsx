@@ -17,9 +17,9 @@ const Bagde = ({ label, shape, size, color, class_prefix }) => {
 
 Bagde.propTypes = {
   label: PropTypes.string.isRequired,
-  shape: PropTypes.oneOfType(['rectangular', 'circle']),
-  size: PropTypes.oneOfType(['small', 'medium', 'big']),
-  color: PropTypes.oneOfType(['primary', 'secondary', 'success', 'danger'])
+  shape: PropTypes.oneOf(['rectangular', 'circle']),
+  size: PropTypes.oneOf(['small', 'medium', 'big']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger'])
 };
 
 Bagde.defaultProps = {
