@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ type, name, value, disabled, onChange }) => {
+const Input = ({
+  type,
+  name,
+  value,
+  disabled,
+  onChange,
+  class_prefix,
+  size,
+  color
+}) => {
   const isDisabled = disabled ? 'disabled' : null;
   return (
     <input
@@ -10,6 +19,11 @@ const Input = ({ type, name, value, disabled, onChange }) => {
       value={value}
       disabled={isDisabled}
       onChange={onChange}
+      className={
+        class_prefix
+          ? `${class_prefix}__input--${size}--${color}`
+          : `input--${size}--${color}`
+      }
     />
   );
 };
@@ -19,35 +33,41 @@ Input.propTypes = {
     'button',
     'checkbox',
     'color',
-    // 'date',
-    // 'datetime-local',
+    'date',
+    'datetime-local',
     'email',
-    'file',
     'hidden',
-    // 'image',
-    // 'month',
-    // 'number',
+    'image',
+    'month',
+    'number',
+    'password',
     'radio',
     'range',
     'reset',
-    // 'search',
+    'search',
     'submit',
-    // 'tel',
+    'tel',
     'text',
-    // 'time',
-    'url'
-    // 'week'
+    'time',
+    'url',
+    'week'
   ]),
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'big']),
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger']),
+  class_prefix: PropTypes.string
 };
 
 Input.defaultProps = {
   type: 'text',
   value: null,
-  disabled: false
+  disabled: false,
+  size: 'medium',
+  color: 'primary',
+  class_prefix: null
 };
 
 export default Input;
